@@ -102,5 +102,8 @@ describe("Filter Function", () => {
   test('drop if elements string ', () => {
     expect(drop(['a', 'b', 'c'], 1)).toStrictEqual(['b', 'c']);
   });
+  test('drop empty by default', () => {
+    expect(drop([1, 2, 3], undefined)).toEqual([2, 3]);
+  })
 });
 
