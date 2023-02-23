@@ -2,6 +2,7 @@ import filter from './filter.js';
 import find from './find.js';
 import chunk from './chunk.js';
 import compact from './compact.js';
+import drop from './drop.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
@@ -76,5 +77,30 @@ describe("Filter Function", () => {
     expect(drop).toBeDefined();
   });
 
+  test('drop array with n elements ', () => {
+    expect(drop([1, 2, 3], 2)).toStrictEqual([3]);
+  });
+
+  test('drop array with 0 elements ', () => {
+    expect(drop([1, 2, 3], 0)).toStrictEqual([1, 2, 3]);
+  });
+  test('drop array with n>array.length elements ', () => {
+    expect(drop([1, 2, 3], 4)).toStrictEqual([]);
+  });
+  test('drop array with n=1 ', () => {
+    expect(drop([1, 2, 3], 1)).toStrictEqual([2, 3]);
+  });
+  test('drop if number ', () => {
+    expect(drop(0, 1)).toStrictEqual([]);
+  });
+  test('drop if string ', () => {
+    expect(drop('abc', 1)).toStrictEqual([]);
+  });
+  test('drop if  boolean ', () => {
+    expect(drop(false, 1)).toStrictEqual([]);
+  });
+  test('drop if elements string ', () => {
+    expect(drop(['a', 'b', 'c'], 1)).toStrictEqual(['b', 'c']);
+  });
 });
 
