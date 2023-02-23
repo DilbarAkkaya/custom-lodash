@@ -72,5 +72,9 @@ describe("Filter Function", () => {
     expect(compact([0, null, 1, false, 2, '', 3, NaN, undefined])).toStrictEqual([1, 2, 3]);
   });
 
+  test("function drop is defined", () => {
+    expect(drop).toBeDefined();
+  });
+
 });
 
