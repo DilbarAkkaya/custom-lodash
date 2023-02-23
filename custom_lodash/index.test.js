@@ -20,9 +20,9 @@ describe("Filter Function", () => {
     expect(find).toBeDefined();
   });
   var users = [
-    { 'user': 'barney',  'age': 36, 'active': true },
-    { 'user': 'fred',    'age': 40, 'active': false },
-    { 'user': 'pebbles', 'age': 1,  'active': true }
+    { 'user': 'barney', 'age': 36, 'active': true },
+    { 'user': 'fred', 'age': 40, 'active': false },
+    { 'user': 'pebbles', 'age': 1, 'active': true }
   ];
 
   test("first element  predicate (el => el.active === false)", () => {
@@ -30,7 +30,7 @@ describe("Filter Function", () => {
   })
 
   test("first element  predicate (el => el.active === true)", () => {
-    expect(find(users, (el) => el.active === true)).toStrictEqual({ 'user': 'barney',  'age': 36, 'active': true })
+    expect(find(users, (el) => el.active === true)).toStrictEqual({ 'user': 'barney', 'age': 36, 'active': true })
   })
 
   test("first element  predicate (el => el > 0)", () => {
@@ -47,8 +47,20 @@ describe("Filter Function", () => {
     expect(predicate).toHaveBeenCalledTimes(0);
   })
 
-  test("function Find is defined", () => {
+  test("function chunk is defined", () => {
     expect(chunk).toBeDefined();
+  });
+
+  test('chunk array of 10 el to 2n', () => {
+    expect(chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2)).toEqual([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]]);
+  });
+
+  test('chunk array of [] to 0n', () => {
+    expect(chunk([], 0)).toEqual(undefined);
+  });
+
+  test('chunk array of 10 el to 3n', () => {
+    expect(chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)).toEqual([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]);
   });
 });
 
