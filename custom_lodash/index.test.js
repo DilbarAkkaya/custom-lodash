@@ -69,7 +69,8 @@ describe("Filter Function", () => {
   });
 
   test('compact array without falsy', () => {
-    expect(compact([0, 1, false, 2, '', 3])).toEqual([1, 2, 3]);
+    expect(compact([0, null, 1, false, 2, '', 3, NaN, undefined])).toStrictEqual([1, 2, 3]);
   });
+
 });
 
