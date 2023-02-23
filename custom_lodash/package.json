@@ -1,0 +1,28 @@
+{
+  "name": "custom_lodash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.test.js",
+  "dependencies": {
+    "jest-cli": "^29.4.3"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.4.3",
+    "jest": "^29.4.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DilbarAkkaya/custom_lodash.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DilbarAkkaya/custom_lodash/issues"
+  },
+  "homepage": "https://github.com/DilbarAkkaya/custom_lodash#readme"
+}
