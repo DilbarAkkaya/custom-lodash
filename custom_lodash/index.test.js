@@ -1,6 +1,7 @@
 import filter from './filter.js';
 import find from './find.js';
 import chunk from './chunk.js';
+import compact from './compact.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
@@ -65,6 +66,10 @@ describe("Filter Function", () => {
 
   test("function compact is defined", () => {
     expect(compact).toBeDefined();
+  });
+
+  test('compact array without falsy', () => {
+    expect(compact([0, 1, false, 2, '', 3])).toEqual([1, 2, 3]);
   });
 });
 
