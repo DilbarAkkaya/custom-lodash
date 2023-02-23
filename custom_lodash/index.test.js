@@ -1,5 +1,6 @@
 import filter from './filter.js';
 import find from './find.js';
+import chunk from './chunk.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
@@ -45,5 +46,9 @@ describe("Filter Function", () => {
     find(predicate);
     expect(predicate).toHaveBeenCalledTimes(0);
   })
+
+  test("function Find is defined", () => {
+    expect(chunk).toBeDefined();
+  });
 });
 
