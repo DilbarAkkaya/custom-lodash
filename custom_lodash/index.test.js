@@ -105,5 +105,8 @@ describe("Filter Function", () => {
   test('drop empty by default', () => {
     expect(drop([1, 2, 3], undefined)).toEqual([2, 3]);
   })
+  test("function dropWhile is defined", () => {
+    expect(dropWhile).toBeDefined();
+  });
 });
 
