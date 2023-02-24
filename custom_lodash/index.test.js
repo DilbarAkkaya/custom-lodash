@@ -129,8 +129,14 @@ describe("Filter Function", () => {
   test('includes 1 from 2 index in array to return false', () => {
     expect(includes(([1, 2, 3], 1, 2))).toEqual(false);
   });
- test('includes 1 in array to return true', () => {
+ test('includes 1 in value of obj to return true', () => {
     expect(includes({ 'a': 1, 'b': 2 }, 1)).toStrictEqual(true);
+  });
+  test('includes 3 from -1 index in array to return true', () => {
+    expect(includes([1, 2, 3], 3, -1)).toEqual(true);
+  });
+  test('includes 2 in value of obj from index 1 to return true', () => {
+    expect(includes({ 'a': 1, 'b': 2 }, 2, 1)).toStrictEqual(true);
   });
 });
 
