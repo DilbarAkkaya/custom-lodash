@@ -126,5 +126,8 @@ describe("Filter Function", () => {
   test('includes 1 in array to return true', () => {
     expect(includes([1, 2, 3], 1)).toEqual(true);
   });
+  test('includes 1 in array to return true', () => {
+    expect(includes(([1, 2, 3], 1, 2))).toEqual(false);
+  });
 });
 
