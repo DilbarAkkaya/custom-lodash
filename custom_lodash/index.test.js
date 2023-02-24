@@ -119,5 +119,8 @@ describe("Filter Function", () => {
   test("predicate (el => !el.active)", () => {
     expect(dropWhile(usersForDropWhile, function(o) {return !o.active;})).toStrictEqual([{ 'user': 'pebbles', 'active': true }])
   })
+  test("function includes is defined", () => {
+    expect(includes).toBeDefined();
+  });
 });
 
