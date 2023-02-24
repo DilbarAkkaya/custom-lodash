@@ -18,10 +18,10 @@ describe("Filter Function", () => {
     expect(Array.isArray(filter([-1, 0, 6, 5, -9], (element) => element > 0))).toBe(true);
   });
 
-
   test("function Find is defined", () => {
     expect(find).toBeDefined();
   });
+
   var users = [
     { 'user': 'barney', 'age': 36, 'active': true },
     { 'user': 'fred', 'age': 40, 'active': false },
@@ -109,5 +109,15 @@ describe("Filter Function", () => {
   test("function dropWhile is defined", () => {
     expect(dropWhile).toBeDefined();
   });
+
+  var usersForDropWhile = [
+    { 'user': 'barney',  'active': false },
+    { 'user': 'fred',    'active': false },
+    { 'user': 'pebbles', 'active': true }
+  ];
+
+  test("predicate (el => !el.active)", () => {
+    expect(dropWhile(usersForDropWhile, function(o) {return !o.active;})).toStrictEqual([{ 'user': 'pebbles', 'active': true }])
+  })
 });
 
