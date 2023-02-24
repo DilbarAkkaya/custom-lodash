@@ -3,6 +3,7 @@ import find from './find.js';
 import chunk from './chunk.js';
 import compact from './compact.js';
 import drop from './drop.js';
+import dropWhile from './dropWhile.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
