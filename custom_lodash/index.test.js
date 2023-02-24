@@ -4,6 +4,7 @@ import chunk from './chunk.js';
 import compact from './compact.js';
 import drop from './drop.js';
 import dropWhile from './dropWhile.js';
+import includes from './includes.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
@@ -121,6 +122,9 @@ describe("Filter Function", () => {
   })
   test("function includes is defined", () => {
     expect(includes).toBeDefined();
+  });
+  test('includes 1 in array to return true', () => {
+    expect(includes([1, 2, 3], 1)).toEqual(true);
   });
 });
 
