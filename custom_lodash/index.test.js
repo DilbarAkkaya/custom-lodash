@@ -9,6 +9,7 @@ import map from './map.js';
 import zip from './zip.js';
 import take from './take.js';
 import merge from './merge.js';
+import omit from './omit.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
@@ -186,5 +187,11 @@ describe("Filter Function", () => {
     test("function omit is defined", () => {
     expect(omit).toBeDefined();
   });
+
+  test('omit property paths ["a", "c"] from object' , () => {
+    var object = { 'a': 1, 'b': '2', 'c': 3 };
+    expect(omit(object, ['a', 'c'])).toStrictEqual({'b': '2'});
+  });
+
 });
 
