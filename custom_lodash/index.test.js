@@ -168,5 +168,9 @@ describe("Filter Function", () => {
   test('take 2 el from arr', () => {
     expect(take([1, 2, 3], 2)).toStrictEqual([1, 2]);
   });
+
+  test("function merge is defined", () => {
+    expect(merge).toBeDefined();
+  });
 });
 
