@@ -161,5 +161,9 @@ describe("Filter Function", () => {
   test("function take is defined", () => {
     expect(take).toBeDefined();
   });
+
+  test('take 1 el from arr', () => {
+    expect(take([1, 2, 3], 1)).toStrictEqual([1]);
+  });
 });
 
