@@ -138,5 +138,8 @@ describe("Filter Function", () => {
   test('includes 2 in value of obj from index 1 to return true', () => {
     expect(includes({ 'a': 1, 'b': 2 }, 2, 1)).toStrictEqual(true);
   });
+   test("function map is defined", () => {
+    expect(map).toBeDefined();
+  });
 });
 
