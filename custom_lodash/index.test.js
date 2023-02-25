@@ -148,5 +148,8 @@ describe("Filter Function", () => {
     }
     expect(map([4, 8], square)).toStrictEqual([16, 64]);
   });
+  test("function zip is defined", () => {
+    expect(zip).toBeDefined();
+  });
 });
 
