@@ -193,5 +193,9 @@ describe("Filter Function", () => {
     expect(omit(object, ['a', 'c'])).toStrictEqual({'b': '2'});
   });
 
+  test("function omitBy is defined", () => {
+    expect(omitBy).toBeDefined();
+  });
+
 });
 
