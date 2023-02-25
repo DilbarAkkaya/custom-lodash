@@ -5,6 +5,7 @@ import compact from './compact.js';
 import drop from './drop.js';
 import dropWhile from './dropWhile.js';
 import includes from './includes.js';
+import map from './map.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
