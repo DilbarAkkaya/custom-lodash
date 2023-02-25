@@ -173,5 +173,14 @@ describe("Filter Function", () => {
   test("function merge is defined", () => {
     expect(merge).toBeDefined();
   });
+  test('merge 2 objects', () => {
+    var object = {
+      'a': [{ 'b': 2 }, { 'd': 4 }]
+    };
+    var other = {
+      'a': [{ 'c': 3 }, { 'e': 5 }]
+    };
+    expect(merge(object, other)).toStrictEqual({ 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] });
+  });
 });
 
