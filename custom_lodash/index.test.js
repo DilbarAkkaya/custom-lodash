@@ -142,5 +142,11 @@ describe("Filter Function", () => {
    test("function map is defined", () => {
     expect(map).toBeDefined();
   });
+  test('map return elem to square', () => {
+    function square(n) {
+      return n * n;
+    }
+    expect(map([4, 8], square)).toStrictEqual([16, 64]);
+  });
 });
 
