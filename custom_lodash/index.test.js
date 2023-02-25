@@ -156,5 +156,9 @@ describe("Filter Function", () => {
   test('zip 3 arr elememnts', () => {
     expect(zip(['a', 'b'], [1, 2], [true, false])).toStrictEqual([['a', 1, true], ['b', 2, false]]);
   });
+
+  test("function take is defined", () => {
+    expect(take).toBeDefined();
+  });
 });
 
