@@ -8,6 +8,7 @@ import includes from './includes.js';
 import map from './map.js';
 import zip from './zip.js';
 import take from './take.js';
+import merge from './merge.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
