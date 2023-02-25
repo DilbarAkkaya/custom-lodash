@@ -182,5 +182,9 @@ describe("Filter Function", () => {
     };
     expect(merge(object, other)).toStrictEqual({ 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] });
   });
+
+    test("function omit is defined", () => {
+    expect(omit).toBeDefined();
+  });
 });
 
