@@ -165,5 +165,8 @@ describe("Filter Function", () => {
   test('take 1 el from arr', () => {
     expect(take([1, 2, 3], 1)).toStrictEqual([1]);
   });
+  test('take 2 el from arr', () => {
+    expect(take([1, 2, 3], 2)).toStrictEqual([1, 2]);
+  });
 });
 
