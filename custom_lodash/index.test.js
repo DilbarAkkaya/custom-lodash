@@ -6,6 +6,7 @@ import drop from './drop.js';
 import dropWhile from './dropWhile.js';
 import includes from './includes.js';
 import map from './map.js';
+import zip from './zip.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
