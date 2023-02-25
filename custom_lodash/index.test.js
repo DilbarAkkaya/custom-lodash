@@ -200,7 +200,7 @@ describe("Filter Function", () => {
 
   test('omitBy predicate number values from object' , () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
-    expect(omitBy(object, (propValue) => typeof propValue === 'nubmer')).toStrictEqual({'b': '2'});
+    expect(omitBy(object, (key) => typeof key === 'number')).toStrictEqual({'b': '2'});
   });
 });
 
