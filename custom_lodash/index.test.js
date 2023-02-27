@@ -216,5 +216,10 @@ describe("Filter Function", () => {
   test("function pickBy is defined", () => {
     expect(pickBy).toBeDefined();
   });
+
+  test('pickBy predicate number values from object' , () => {
+    var object = { 'a': 1, 'b': '2', 'c': 3 };
+    expect(pickBy(object, (key) => typeof key === 'number')).toStrictEqual({ 'a': 1, 'c': 3 });
+  });
 });
 
