@@ -210,7 +210,7 @@ describe("Filter Function", () => {
 
   test('pick number values from object' , () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
-    expect(pick(object, ['a', 'b']).toStrictEqual({ 'a': 1, 'c': 3 }));
+    expect(pick(object, ['a', 'c'])).toEqual({ 'a': 1, 'c': 3 });
   });
 });
 
