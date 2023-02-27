@@ -202,5 +202,8 @@ describe("Filter Function", () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
     expect(omitBy(object, (key) => typeof key === 'number')).toStrictEqual({'b': '2'});
   });
+  test("function pick is defined", () => {
+    expect(pick).toBeDefined();
+  });
 });
 
