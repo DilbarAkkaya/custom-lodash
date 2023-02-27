@@ -11,6 +11,7 @@ import take from './take.js';
 import merge from './merge.js';
 import omit from './omit.js';
 import omitBy from './omitBy.js';
+import pick from './pick.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
@@ -202,8 +203,14 @@ describe("Filter Function", () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
     expect(omitBy(object, (key) => typeof key === 'number')).toStrictEqual({'b': '2'});
   });
+
   test("function pick is defined", () => {
     expect(pick).toBeDefined();
+  });
+
+  test('pick number values from object' , () => {
+    var object = { 'a': 1, 'b': '2', 'c': 3 };
+    expect(pick(object, ['a', 'b']).toStrictEqual({ 'a': 1, 'c': 3 }));
   });
 });
 
