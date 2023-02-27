@@ -12,6 +12,7 @@ import merge from './merge.js';
 import omit from './omit.js';
 import omitBy from './omitBy.js';
 import pick from './pick.js';
+import pickBy from './pickBy.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
