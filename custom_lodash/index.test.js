@@ -59,6 +59,9 @@ describe("Filter Function", () => {
     find(predicate);
     expect(predicate).toHaveBeenCalledTimes(0);
   })
+  test("first element  predicate (el => el < -1 to be undefined)", () => {
+    expect(find([1, 2, 0, [-1, 2]], (el, i, arr) => el < -1)).toBeUndefined()
+  });
 
   test("function chunk is defined", () => {
     expect(chunk).toBeDefined();
