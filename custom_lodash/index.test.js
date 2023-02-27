@@ -221,5 +221,9 @@ describe("Filter Function", () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
     expect(pickBy(object, (key) => typeof key === 'number')).toStrictEqual({ 'a': 1, 'c': 3 });
   });
+  
+  test("function onPairs is defined", () => {
+    expect(onPairs).toBeDefined();
+  });
 });
 
