@@ -13,6 +13,7 @@ import omit from './omit.js';
 import omitBy from './omitBy.js';
 import pick from './pick.js';
 import pickBy from './pickBy.js';
+import onPairs from './onPairs.js';
 
 describe("Filter Function", () => {
   test("function Filter is defined", () => {
@@ -221,7 +222,7 @@ describe("Filter Function", () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
     expect(pickBy(object, (key) => typeof key === 'number')).toStrictEqual({ 'a': 1, 'c': 3 });
   });
-  
+
   test("function onPairs is defined", () => {
     expect(onPairs).toBeDefined();
   });
