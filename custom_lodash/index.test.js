@@ -20,11 +20,11 @@ describe("Filter Function", () => {
     expect(filter).toBeDefined();
   });
 
-  test("Predicate for filter elements > 0 is worked", () => {
+  test("filter([-1, 0, 6, 5, -9], el => el> 0) returns [6, 5]", () => {
     expect(filter([-1, 0, 6, 5, -9], (element) => element > 0)).toStrictEqual([6, 5]);
   });
 
-  test("Predicate for filter elements > 0 is worked", () => {
+  test("Array.isArray(filter([-1, 0, 6, 5, -9], (element) => element > 0) returns true", () => {
     expect(Array.isArray(filter([-1, 0, 6, 5, -9], (element) => element > 0))).toBe(true);
   });
 
@@ -38,19 +38,19 @@ describe("Filter Function", () => {
     { 'user': 'pebbles', 'age': 1, 'active': true }
   ];
 
-  test("first element  predicate (el => el.active === false)", () => {
+  test("find(users, (el) => el.active === false) returns { 'user': 'fred', 'age': 40, 'active': false }", () => {
     expect(find(users, (el) => el.active === false)).toStrictEqual({ 'user': 'fred', 'age': 40, 'active': false })
   })
 
-  test("first element  predicate (el => el.active === true)", () => {
+  test("find(users, (el) => el.active === true) returns { 'user': 'barney', 'age': 36, 'active': true }", () => {
     expect(find(users, (el) => el.active === true)).toStrictEqual({ 'user': 'barney', 'age': 36, 'active': true })
   })
 
-  test("first element  predicate (el => el > 0)", () => {
+  test("find([1, 2, 0, [-1, 2]], (el, i, arr) => el > 0) returns 1", () => {
     expect(find([1, 2, 0, [-1, 2]], (el, i, arr) => el > 0)).toStrictEqual(1)
   });
 
-  test("first element  predicate (el => el === -1)", () => {
+  test("find([1, 2, 0, [-1, 2]], (el, i, arr) => el === -1) returns -1", () => {
     expect(find([1, 2, 0, [-1, 2]], (el, i, arr) => el === -1)).toStrictEqual(-1)
   });
 
@@ -59,7 +59,7 @@ describe("Filter Function", () => {
     find(predicate);
     expect(predicate).toHaveBeenCalledTimes(0);
   })
-  test("first element  predicate (el => el < -1 to be undefined)", () => {
+  test("find([1, 2, 0, [-1, 2]], (el, i, arr) => el < -1) returns undefined", () => {
     expect(find([1, 2, 0, [-1, 2]], (el, i, arr) => el < -1)).toBeUndefined()
   });
 
@@ -67,15 +67,15 @@ describe("Filter Function", () => {
     expect(chunk).toBeDefined();
   });
 
-  test('chunk array of 10 el to 2n', () => {
+  test('chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2) returns [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]]', () => {
     expect(chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2)).toEqual([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]]);
   });
 
-  test('chunk array of [] to 0n', () => {
+  test('chunk([], 0) returns underfinded', () => {
     expect(chunk([], 0)).toEqual(undefined);
   });
 
-  test('chunk array of 10 el to 3n', () => {
+  test('chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3) returns [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]', () => {
     expect(chunk([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)).toEqual([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]);
   });
 
@@ -83,7 +83,7 @@ describe("Filter Function", () => {
     expect(compact).toBeDefined();
   });
 
-  test('compact array without falsy', () => {
+  test('(compact([0, null, 1, false, 2, "", 3, NaN, undefined]) returns [1, 2, 3]', () => {
     expect(compact([0, null, 1, false, 2, '', 3, NaN, undefined])).toStrictEqual([1, 2, 3]);
   });
 
@@ -91,32 +91,32 @@ describe("Filter Function", () => {
     expect(drop).toBeDefined();
   });
 
-  test('drop array with n elements ', () => {
+  test('drop([1, 2, 3], 2) returns [3]', () => {
     expect(drop([1, 2, 3], 2)).toStrictEqual([3]);
   });
 
-  test('drop array with 0 elements ', () => {
+  test('drop([1, 2, 3], 0) returns [1, 2, 3]', () => {
     expect(drop([1, 2, 3], 0)).toStrictEqual([1, 2, 3]);
   });
-  test('drop array with n>array.length elements ', () => {
+  test('drop([1, 2, 3], 4) returns []', () => {
     expect(drop([1, 2, 3], 4)).toStrictEqual([]);
   });
-  test('drop array with n=1 ', () => {
+  test('drop([1, 2, 3], 1) returns [2, 3]', () => {
     expect(drop([1, 2, 3], 1)).toStrictEqual([2, 3]);
   });
-  test('drop if number ', () => {
+  test('drop(0, 1) returns []', () => {
     expect(drop(0, 1)).toStrictEqual([]);
   });
-  test('drop if string ', () => {
+  test('drop("abc", 1) returns []', () => {
     expect(drop('abc', 1)).toStrictEqual([]);
   });
-  test('drop if  boolean ', () => {
+  test('drop(false, 1) returns []', () => {
     expect(drop(false, 1)).toStrictEqual([]);
   });
-  test('drop if elements string ', () => {
+  test("drop(['a', 'b', 'c'], 1) returns ['b', 'c']", () => {
     expect(drop(['a', 'b', 'c'], 1)).toStrictEqual(['b', 'c']);
   });
-  test('drop empty by default', () => {
+  test('drop([1, 2, 3], undefined) returns [2, 3]', () => {
     expect(drop([1, 2, 3], undefined)).toEqual([2, 3]);
   })
   test("function dropWhile is defined", () => {
@@ -129,25 +129,25 @@ describe("Filter Function", () => {
     { 'user': 'pebbles', 'active': true }
   ];
 
-  test("predicate (el => !el.active)", () => {
+  test("dropWhile(usersForDropWhile, function(o) {return !o.active;}) returns [{ 'user': 'pebbles', 'active': true }]", () => {
     expect(dropWhile(usersForDropWhile, function(o) {return !o.active;})).toStrictEqual([{ 'user': 'pebbles', 'active': true }])
   })
   test("function includes is defined", () => {
     expect(includes).toBeDefined();
   });
-  test('includes 1 in array to return true', () => {
+  test('includes([1, 2, 3], 1) returns true', () => {
     expect(includes([1, 2, 3], 1)).toEqual(true);
   });
-  test('includes 1 from 2 index in array to return false', () => {
+  test('includes(([1, 2, 3], 1, 2)) false', () => {
     expect(includes(([1, 2, 3], 1, 2))).toEqual(false);
   });
- test('includes 1 in value of obj to return true', () => {
+ test("includes({ 'a': 1, 'b': 2 }, 1) return true", () => {
     expect(includes({ 'a': 1, 'b': 2 }, 1)).toStrictEqual(true);
   });
-  test('includes 3 from -1 index in array to return true', () => {
+  test('includes([1, 2, 3], 3, -1) returns true', () => {
     expect(includes([1, 2, 3], 3, -1)).toEqual(true);
   });
-  test('includes 2 in value of obj from index 1 to return true', () => {
+  test("includes({ 'a': 1, 'b': 2 }, 2, 1) return true", () => {
     expect(includes({ 'a': 1, 'b': 2 }, 2, 1)).toStrictEqual(true);
   });
    test("function map is defined", () => {
@@ -163,7 +163,7 @@ describe("Filter Function", () => {
     expect(zip).toBeDefined();
   });
 
-  test('zip 3 arr elememnts', () => {
+  test("zip(['a', 'b'], [1, 2], [true, false]) returns [['a', 1, true], ['b', 2, false]] ", () => {
     expect(zip(['a', 'b'], [1, 2], [true, false])).toStrictEqual([['a', 1, true], ['b', 2, false]]);
   });
 
@@ -171,10 +171,10 @@ describe("Filter Function", () => {
     expect(take).toBeDefined();
   });
 
-  test('take 1 el from arr', () => {
+  test('take([1, 2, 3], 1) returns [1]', () => {
     expect(take([1, 2, 3], 1)).toStrictEqual([1]);
   });
-  test('take 2 el from arr', () => {
+  test('take([1, 2, 3], 2) returns [1, 2]', () => {
     expect(take([1, 2, 3], 2)).toStrictEqual([1, 2]);
   });
 
@@ -195,7 +195,7 @@ describe("Filter Function", () => {
     expect(omit).toBeDefined();
   });
 
-  test('omit property paths ["a", "c"] from object' , () => {
+  test("omit property paths ['a', 'c'] from object returns {'b': '2'}" , () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
     expect(omit(object, ['a', 'c'])).toStrictEqual({'b': '2'});
   });
@@ -204,7 +204,7 @@ describe("Filter Function", () => {
     expect(omitBy).toBeDefined();
   });
 
-  test('omitBy predicate number values from object' , () => {
+  test("omitBy(object, (key) => typeof key === 'number') returns {'b': '2'}" , () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
     expect(omitBy(object, (key) => typeof key === 'number')).toStrictEqual({'b': '2'});
   });
@@ -221,7 +221,7 @@ describe("Filter Function", () => {
     expect(pickBy).toBeDefined();
   });
 
-  test('pickBy predicate number values from object' , () => {
+  test("pickBy(object, (key) => typeof key === 'number') returns { 'a': 1, 'c': 3 }" , () => {
     var object = { 'a': 1, 'b': '2', 'c': 3 };
     expect(pickBy(object, (key) => typeof key === 'number')).toStrictEqual({ 'a': 1, 'c': 3 });
   });
@@ -231,7 +231,7 @@ describe("Filter Function", () => {
   });
 
   
-  test('toPairs creates an array ' , () => {
+  test("toPairs(new Foo) creates[['a', 1], ['b', 2]]" , () => {
     function Foo() {
       this.a = 1;
       this.b = 2;
